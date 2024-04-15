@@ -33,7 +33,5 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
           gh api -X POST \
-          https://api.github.com/repo/drawners/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
-          -f body='
-          Comment but from API call not actions
-          '
+          https://api.github.com/repos/${{env.REPOSITORY}}/issues/${{env.ISSUE_NUMBER}}/comments \
+          -f body='Comment but from API call not actions'
